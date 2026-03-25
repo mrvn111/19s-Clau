@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invitación Clau 19</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  font-family:'Montserrat',sans-serif;
+  background:#fff;
+  color:#111;
+  text-align:center;
+  overflow-x:hidden;
+}
+
+/* INTRO */
+#intro{
+  position:fixed;
+  top:0;left:0;
+  width:100%;height:100%;
+  background:linear-gradient(135deg,#000,#7b3fe4);
+  color:#fff;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+  cursor:pointer;
+}
+#intro.fade-out{opacity:0;transition:1s;visibility:hidden}
+
+/* ESTRELLAS */
+.stars{
+  position:absolute;
+  width:100%;
+  height:200%;
+  top:0;
+  left:0;
+  z-index:0;
+}
+.star{
+  position:absolute;
+  width:3px;height:3px;
+  border-radius:50%;
+  animation:twinkle 4s infinite;
+}
+@keyframes twinkle{
+  0%{opacity:0}
+  50%{opacity:.9}
+  100%{opacity:0}
+}
+
+/* SECCIONES */
+.section{
+  padding:80px 20px;
+  position:relative;
+  z-index:1;
+}
+
+.title{
+  font-family:'Playfair Display',serif;
+  font-size:34px;
+}
+
+.subtitle{
+  font-size:18px;
+  opacity:.8;
+}
+
+/* HERO */
+.hero{
+  background:url('harry.jpg') center/cover no-repeat;
+  color:#fff;
+}
+.overlay{
+  background:rgba(0,0,0,.6);
+  padding:100px 20px;
+}
+
+/* BOTON */
+.button{
+  background:linear-gradient(45deg,#ffb6c1,#d6a4ff,#ffd700);
+  color:#fff;
+  padding:12px 22px;
+  border-radius:25px;
+  text-decoration:none;
+  display:inline-block;
+  margin-top:15px;
+}
+
+/* TEXTO FONDO */
+.bg-text{
+  position:absolute;
+  opacity:.04;
+  font-size:30px;
+  width:100%;
+  top:0;
+  left:0;
+  line-height:1.8;
+  padding:20px;
+}
+
+/* CALENDARIO */
+.calendar{
+  display:grid;
+  grid-template-columns:repeat(7,1fr);
+  gap:8px;
+  max-width:320px;
+  margin:20px auto;
+  position:relative;
+  z-index:2;
+}
+.day{
+  padding:10px;
+  border-radius:8px;
+  background:#f5f5f5;
+}
+.mark{
+  background:linear-gradient(45deg,#000,#7b3fe4,#ffd700);
+  color:#fff;
+  font-weight:bold;
+}
+
+/* 🎉 CONFETI DESDE LOS LADOS */
+.confetti{
+  position:absolute;
+  width:6px;
+  height:10px;
+  opacity:.9;
+}
+
+@keyframes confettiLeft{
+  0%{
+    transform:translateX(-50px) translateY(0) rotate(0deg);
+    opacity:1;
+  }
+  100%{
+    transform:translateX(180px) translateY(120px) rotate(360deg);
+    opacity:0;
+  }
+}
+
+@keyframes confettiRight{
+  0%{
+    transform:translateX(50px) translateY(0) rotate(0deg);
+    opacity:1;
+  }
+  100%{
+    transform:translateX(-180px) translateY(120px) rotate(-360deg);
+    opacity:0;
+  }
+}
+
+/* RSVP */
+.rsvp{max-width:300px;margin:0 auto;text-align:left}
+.rsvp input{width:100%;padding:10px;margin:5px 0;border-radius:10px;border:1px solid #ccc}
+.confirm-message{margin-top:10px;color:#7b3fe4;font-weight:bold}
+
+/* FIREWORKS */
+#fireworksCanvas{
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  z-index:5;
+}
+</style>
+</head>
+<body>
+
+<!-- INTRO -->
+<div id="intro" onclick="openInvite()">
+<h1>✨ Invitación</h1>
+<p>🎉 Toca para abrir</p>
+</div>
+
+<!-- ESTRELLAS -->
+<div class="stars" id="stars"></div>
+
+<!-- FIREWORKS -->
+<canvas id="fireworksCanvas"></canvas>
+
+<!-- HERO -->
+<div class="section hero">
+<div class="overlay">
+<div class="title">🪩 Clau 19 🎂</div>
+<div class="subtitle">🎤 Una noche estilo Harry ✨</div>
+</div>
+</div>
+
+<!-- INVITACIÓN -->
+<div class="section">
+<div class="bg-text">
+Harry Styles • Fine Line • Harry’s House • Golden • Adore You • Watermelon Sugar • Sign of the Times • Kiwi • Lights Up • Late Night Talking • Cinema • Daydreaming • Satellite • As It Was • Grapejuice • Matilda • Boyfriends • Cherry • Carolina • She • Falling • Sweet Creature • Only Angel • Ever Since New York • Canyon Moon • Sunflower Vol.6 • Medicine • Keep Driving • Love of My Life • Treat People With Kindness •
+Harry Styles • Fine Line • Harry’s House • Golden • Adore You • Watermelon Sugar • Sign of the Times • Kiwi • Lights Up • Late Night Talking • Cinema • Daydreaming • Satellite • As It Was • Grapejuice • Matilda • Boyfriends • Cherry • Carolina • She • Falling • Sweet Creature • Only Angel • Ever Since New York • Canyon Moon • Sunflower Vol.6 • Medicine • Keep Driving • Love of My Life • Treat People With Kindness •
+Harry Styles • Fine Line • Harry’s House • Golden • Adore You • Watermelon Sugar • Sign of the Times • Kiwi • Lights Up • Late Night Talking • Cinema • Daydreaming • Satellite • As It Was • Grapejuice • Matilda • Boyfriends • Cherry • Carolina • She • Falling • Sweet Creature • Only Angel • Ever Since New York • Canyon Moon • Sunflower Vol.6 • Medicine • Keep Driving • Love of My Life • Treat People With Kindness
+</div>
+
+<div class="title">🎶 La invitación</div>
+
+<audio controls>
+<source src="american-girls.mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<!-- COUNTDOWN -->
+<div class="section">
+<div class="title">⏳ FALTAN</div>
+<div id="countdown"></div>
+</div>
+
+<!-- CALENDARIO -->
+<div class="section" id="calendarSection">
+<div class="title">📅 Calendario</div>
+
+<div class="calendar">
+<div class="day">1</div><div class="day">2</div><div class="day">3</div><div class="day">4</div><div class="day">5</div><div class="day">6</div><div class="day">7</div>
+<div class="day">8</div><div class="day">9</div><div class="day">10</div><div class="day">11</div><div class="day">12</div><div class="day">13</div><div class="day">14</div>
+<div class="day">15</div><div class="day">16</div><div class="day">17</div><div class="day">18</div><div class="day">19</div><div class="day">20</div><div class="day">21</div>
+<div class="day">22</div><div class="day">23</div><div class="day">24</div><div class="day">25</div><div class="day">26</div><div class="day">27</div><div class="day mark">28</div>
+</div>
+</div>
+
+<!-- EVENTO -->
+<div class="section">
+<div class="title">📍 Evento</div>
+<p>📅 28 de marzo</p>
+<p>🕔 5:00 PM</p>
+<a class="button" href="https://maps.app.goo.gl/YznPPmkyicrhxZeA8" target="_blank">Ver ubicación</a>
+</div>
+
+<!-- RSVP -->
+<div class="section">
+<div class="title">✅ Confirmar asistencia</div>
+<div class="rsvp">
+<input type="text" id="name" placeholder="Tu nombre">
+<button class="button" onclick="addGuest()">Confirmar</button>
+<div id="confirmMessage" class="confirm-message"></div>
+</div>
+</div>
+
+<script>
+// INTRO
+function openInvite(){
+  document.getElementById('intro').classList.add('fade-out');
+}
+
+// COUNTDOWN
+var countDownDate=new Date('Mar 28, 2026 17:00:00').getTime();
+setInterval(function(){
+var now=new Date().getTime();
+var d=countDownDate-now;
+document.getElementById('countdown').innerHTML=
+Math.floor(d/(1000*60*60*24))+'d '+
+Math.floor((d%(1000*60*60*24))/(1000*60*60))+'h';
+},1000);
+
+// CONFIRMAR + FUEGOS
+function addGuest(){
+let name=document.getElementById('name').value.trim();
+if(name==='') return;
+
+document.getElementById('confirmMessage').textContent =
+`Gracias por confirmar tu asistencia, ${name}!`;
+
+launchFireworks();
+}
+
+// ⭐ ESTRELLAS
+const starsContainer=document.getElementById("stars");
+for(let i=0;i<150;i++){
+  let star=document.createElement("div");
+  star.className="star";
+  star.style.top=Math.random()*200+"%";
+  star.style.left=Math.random()*100+"%";
+  star.style.background=Math.random()>0.4?"gold":"#111";
+  star.style.animationDuration=(Math.random()*5+3)+"s";
+  starsContainer.appendChild(star);
+}
+
+// 🎉 CONFETI LADOS
+const colors=["#ff4d6d","#ffd166","#06d6a0","#118ab2","#9b5de5"];
+const section=document.getElementById("calendarSection");
+
+for(let i=0;i<40;i++){
+  let c=document.createElement("div");
+  c.className="confetti";
+  c.style.background=colors[Math.floor(Math.random()*colors.length)];
+  c.style.left=(i%2===0?"0%":"98%");
+  c.style.top=Math.random()*100+"px";
+
+  if(i%2===0){
+    c.style.animation=`confettiLeft ${Math.random()*2+2}s ease-out infinite`;
+  }else{
+    c.style.animation=`confettiRight ${Math.random()*2+2}s ease-out infinite`;
+  }
+
+  section.appendChild(c);
+}
+
+// 🎆 FIREWORKS
+const canvas=document.getElementById("fireworksCanvas");
+const ctx=canvas.getContext("2d");
+
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+
+let particles=[];
+
+function random(min,max){return Math.random()*(max-min)+min;}
+
+class Particle{
+  constructor(x,y,color){
+    this.x=x;
+    this.y=y;
+    this.color=color;
+    this.size=2;
+    this.speedX=random(-3,3);
+    this.speedY=random(-8,-4);
+    this.alpha=1;
+    this.gravity=0.15;
+  }
+  update(){
+    this.x+=this.speedX;
+    this.y+=this.speedY;
+    this.speedY+=this.gravity;
+    this.alpha-=0.01;
+  }
+  draw(){
+    ctx.globalAlpha=this.alpha;
+    ctx.beginPath();
+    ctx.arc(this.x,this.y,this.size,0,Math.PI*2);
+    ctx.fillStyle=this.color;
+    ctx.fill();
+  }
+}
+
+function launchFireworks(){
+  const colors=["#ffd700","#ff4d6d","#06d6a0","#118ab2","#ffffff"];
+  for(let i=0;i<120;i++){
+    let x=random(canvas.width*0.2,canvas.width*0.8);
+    let y=canvas.height;
+    let color=colors[Math.floor(Math.random()*colors.length)];
+    particles.push(new Particle(x,y,color));
+  }
+}
+
+function animate(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  particles.forEach((p,i)=>{
+    p.update();
+    p.draw();
+    if(p.alpha<=0) particles.splice(i,1);
+  });
+  requestAnimationFrame(animate);
+}
+animate();
+
+window.addEventListener("resize",()=>{
+  canvas.width=window.innerWidth;
+  canvas.height=window.innerHeight;
+});
+</script>
+
+</body>
+</html>
